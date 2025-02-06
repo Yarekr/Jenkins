@@ -40,6 +40,13 @@ pipeline {
             }
         }
 
+        stage('Docker Build') {
+            agent any
+            steps {
+                sh "docker build -t ${params.DOCKER_USERNAME}/${params.DOCKER_IMAGE}:${params.DOCKER_TAG} ."
+                }
+            }
+
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
