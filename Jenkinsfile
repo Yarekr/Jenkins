@@ -1,6 +1,12 @@
 pipeline {
     agent any
 
+    parameters {
+        string(name: 'DOCKER_IMAGE', defaultValue: 'jenkins-demo', description: 'Docker image name')
+        string(name: 'DOCKER_USERNAME', defaultValue: 'xxx', description: 'Tag of docker image')
+        string(name: 'DOCKER_TAG', defaultValue: 'latest', description: 'Tag of docker image')
+    }
+
     tools {
         maven 'maven-3-3-9'
     }
